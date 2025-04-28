@@ -1,0 +1,40 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+  <h1>Filtros</h1>
+
+  <div class="filter-container">
+    <div class="filter-item">
+      <label>Status</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="status" formControlName="status" checked value=""> Todos
+        </label>
+        <label>
+          <input type="radio" name="status" formControlName="status" value="0"> Pendente
+        </label>
+        <label>
+          <input type="radio" name="status" formControlName="status" value="1"> Concluído
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-item">
+      <label>Prioridade</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="priority" formControlName="priority" checked value=""> Todos
+        </label>
+        <label>
+          <input type="radio" name="priority" formControlName="priority" value="1"> Alta
+        </label>
+        <label>
+          <input type="radio" name="priority" formControlName="priority" value="2"> Média
+        </label>
+        <label>
+          <input type="radio" name="priority" formControlName="priority" value="3"> Baixa
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit">Aplicar Filtros</button>
+</form>

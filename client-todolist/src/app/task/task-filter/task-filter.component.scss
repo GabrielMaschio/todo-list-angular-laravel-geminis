@@ -1,0 +1,52 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0px 24px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 1rem;
+    gap: 1.5rem;
+    width: 100%;
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        margin: .5rem;
+        gap: .5rem;
+      }
+    }
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: #4e4e4e;
+    }
+  }
+}
+
+
+
+

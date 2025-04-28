@@ -1,0 +1,47 @@
+<div class="modal-background" *ngIf="isOpen">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ isEditMode ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+      <div class="modal-close" (click)="close()">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+
+    <form [formGroup]="taskForm"  #formDir="ngForm" (ngSubmit)="submitForm()">
+      <div class="input-container">
+        <label for="title">Título</label>
+        <input id="title" formControlName="title" name="title" required>
+
+        <div *ngIf="title.invalid && formDir.submitted" class="error-message">
+          <p *ngIf="title.errors?.['required']">O título é obrigatório!</p>
+          <p *ngIf="title.errors?.['minlength']">O título deve ter pelo menos 3 caracteres!</p>
+          <p *ngIf="title.errors?.['maxlength']">O título deve ter no máximo 16 caracteres!</p>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <label for="description">Descrição</label>
+        <textarea id="description" formControlName="description" name="description" required></textarea>
+        <div *ngIf="description.invalid && formDir.submitted" class="error-message">
+          <p *ngIf="description.errors?.['required']">A descrição é obrigatória!</p>
+          <p *ngIf="description.errors?.['minlength']">A descrição deve ter pelo menos 8 caracteres!</p>
+          <p *ngIf="description.errors?.['maxlength']">A descrição deve ter no máximo 160 caracteres!</p>
+        </div>
+      </div>
+
+      <div class="select-container">
+        <label for="priority">Prioridade:</label>
+        <select id="priority" formControlName="priority" name="priority" required>
+          <option [value]="1">Alta</option>
+          <option [value]="2">Média</option>
+          <option [value]="3">Baixa</option>
+        </select>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="btn-cancel" type="button" (click)="close()">Cancelar</button>
+        <button class="btn-save" type="submit">{{ isEditMode ? 'Atualizar' : 'Salvar' }}</button>
+      </div>
+    </form>
+  </div>
+</div>

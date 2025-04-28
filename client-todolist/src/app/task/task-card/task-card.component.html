@@ -1,0 +1,16 @@
+<div class="task-card"  [ngClass]="{'completed': task.status}">
+  <div class="task-header">
+    <h1>{{ task.title }}</h1>
+    <div class="icons">
+      <i *ngIf="!task.status" class="bi bi-circle" (click)="handleToggleStatus()"></i>
+      <i *ngIf="task.status"  class="bi bi-check-circle" (click)="handleToggleStatus()"></i>
+      <i class="bi bi-pencil-square" (click)="onEdit()"></i>
+      <i class="bi bi-trash" (click)="onDelete()"></i>
+    </div>
+  </div>
+  <p>{{ task.description }}</p>
+  <div class="task-footer">
+    <p>Prioridade: <span [ngStyle]="{ 'color': priorityColor(task.priority) }">{{ priorityName(task.priority) }}</span></p>
+    <div class="priority-line" [ngStyle]="{ 'background-color': priorityColor(task.priority) }"></div>
+  </div>
+</div>

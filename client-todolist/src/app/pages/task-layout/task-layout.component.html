@@ -1,0 +1,30 @@
+<section class="task-section">
+  <div class="task-header">
+    <h1>TODO LIST</h1>
+    <button class="create-button" (click)="openCreateModal()">Criar Tarefa</button>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="task-list-container">
+    <div class="task-grid">
+      <app-task-card
+        *ngFor="let task of tasks"
+        [task]="task"
+        (toggleStatus)="handleToggleStatus($event)"
+        (edit)="handleEdit($event)"
+        (delete)="handleDelete($event)"
+      ></app-task-card>
+    </div>
+
+    <app-task-filter (filterChanged)="applyFilter($event)"></app-task-filter>
+  </div>
+</section>
+
+<app-task-modal
+  [isOpen]="isModalOpen"
+  [isEditMode]="isEditMode"
+  [task]="currentTask"
+  (save)="handleSave($event)"
+  (closeModal)="isModalOpen = false">
+</app-task-modal>

@@ -1,0 +1,77 @@
+.task-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  width: 320px;
+  height: 154px;
+  background: #ffffff;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .task-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 8px;
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      word-break: break-word;
+      flex: 1;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: auto;
+
+      i {
+        font-size: 1.1rem;
+        color: black;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #555;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+    width: 320px;
+    padding: 0 12px 0 12px;
+    color: black;
+    flex-grow: 1;
+    word-break: break-all;
+  }
+
+  .priority-line {
+    margin-top: 12px;
+    height: 6px;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+  }
+
+  &.completed {
+    p {
+      text-decoration: line-through;
+      color: #555;
+    }
+
+    color: #555;
+  }
+}
